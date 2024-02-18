@@ -113,8 +113,9 @@ for(let i = 0; i < seats.length; i++){
   const nextButton = document.getElementById('nextBtn');
 
   nextButton.addEventListener("click", function(){
-    const phoneNumber = parseInt(document.getElementById('phoneNumber').value);
-    if( typeof phoneNumber === "number" || totalSeat > 0){
+    const phoneNumber = document.getElementById('phoneNumber').value;
+    
+    if(typeof phoneNumber === "number" && totalSeat > 0){
         const getBanner = document.getElementById('banner');
         getBanner.classList.add('hidden');
 
@@ -123,8 +124,24 @@ for(let i = 0; i < seats.length; i++){
 
         const getConfirm = document.getElementById('confirmation');
         getConfirm.classList.remove('hidden');
-    
+
+    }
+    else{
+        alert('Select minimum 1 seat and Enter your Phone number first!')
     }
   }) 
+
+// -----------  Continue Button Manipulation -------------
+const continueButton = document.getElementById('contBtn');
+continueButton.addEventListener("click", function(){
+    const getBanner = document.getElementById('banner');
+    getBanner.classList.remove('hidden');
+
+    const getMainPage = document.getElementById('main-page');
+    getMainPage.classList.remove('hidden');
+
+    const getConfirm = document.getElementById('confirmation');
+    location.reload();
+})
 
 
