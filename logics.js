@@ -124,7 +124,7 @@ for(let i = 0; i < seats.length; i++){
         getConfirm.classList.remove('hidden');
     }
     else{
-        alert('Select minimum 1 seat and Enter your Phone number first!')
+        alert('Select minimum one seat to proceed!')
     }
   }) 
 
