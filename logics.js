@@ -113,8 +113,7 @@ for(let i = 0; i < seats.length; i++){
   const nextButton = document.getElementById('nextBtn');
 
   nextButton.addEventListener("click", function(){
-    
-    if( totalSeat >= 1){
+    if( totalSeat > 0){
         const getBanner = document.getElementById('banner');
         getBanner.classList.add('hidden');
 
@@ -123,7 +122,6 @@ for(let i = 0; i < seats.length; i++){
 
         const getConfirm = document.getElementById('confirmation');
         getConfirm.classList.remove('hidden');
-
     }
     else{
         alert('Select minimum 1 seat and Enter your Phone number first!')
