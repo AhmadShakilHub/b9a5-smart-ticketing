@@ -1,3 +1,5 @@
+//----------  Ticket Selection Manipulation ------------
+
 const seats = document.querySelectorAll('.seat');
 
  // Total Price --
@@ -6,7 +8,6 @@ const seats = document.querySelectorAll('.seat');
     let totalSeat = 0;
 // Seat left ---
     let seatLeft = 40;
-    
 
 for(let i = 0; i < seats.length; i++){
     const seat = seats[i];
@@ -48,17 +49,15 @@ for(let i = 0; i < seats.length; i++){
    document.getElementById('totalPrice').innerText = costTotal;
 //    Grand Total -----
     document.getElementById('grandTotal').innerText = costTotal;
-    
     }
     else{
         alert('You can only get 4 seats at once.!')
     }
-   
-
    })
 }
  
-        
+        //---------- Manipulation of Apply Button --------------
+
     const applyButton = document.getElementById('applyBtn');
     applyButton.addEventListener("click", function(){
 
@@ -85,7 +84,6 @@ for(let i = 0; i < seats.length; i++){
         document.getElementById('grandTotal').innerText = grandTotal;
 
         document.getElementById('apply-container').classList.add('hidden');
-       
       }
       else if(inputValue === "COUPLE20"){
         const discountContainer = document.getElementById('discount-container');
@@ -110,18 +108,23 @@ for(let i = 0; i < seats.length; i++){
       }
     })
   
-    
+// ----------   Next Button Manipulation --------------- 
+
   const nextButton = document.getElementById('nextBtn');
 
   nextButton.addEventListener("click", function(){
-
     const phoneNumber = parseInt(document.getElementById('phoneNumber').value);
-    
-    
     if( typeof phoneNumber === "number" || totalSeat > 0){
-        console.log(' both condition is ok!')
-    }
+        const getBanner = document.getElementById('banner');
+        getBanner.classList.add('hidden');
+
+        const getMainPage = document.getElementById('main-page');
+        getMainPage.classList.add('hidden');
+
+        const getConfirm = document.getElementById('confirmation');
+        getConfirm.classList.remove('hidden');
     
+    }
   }) 
 
 
