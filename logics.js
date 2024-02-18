@@ -114,7 +114,7 @@ for(let i = 0; i < seats.length; i++){
 
   nextButton.addEventListener("click", function(){
     
-    if( totalSeat > 0){
+    if( totalSeat >= 1){
         const getBanner = document.getElementById('banner');
         getBanner.classList.add('hidden');
 
