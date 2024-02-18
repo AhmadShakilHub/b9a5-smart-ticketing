@@ -6,11 +6,12 @@ const seats = document.querySelectorAll('.seat');
     let totalSeat = 0;
 // Seat left ---
     let seatLeft = 40;
-
+    
 
 for(let i = 0; i < seats.length; i++){
     const seat = seats[i];
    seat.addEventListener("click", function(){
+    
     if(totalSeat < 4){
         seat.classList.add('bg-green-500');
     
@@ -45,6 +46,9 @@ for(let i = 0; i < seats.length; i++){
    //    Total Price ----
    costTotal += 500;
    document.getElementById('totalPrice').innerText = costTotal;
+//    Grand Total -----
+    document.getElementById('grandTotal').innerText = costTotal;
+    
     }
     else{
         alert('You can only get 4 seats at once.!')
@@ -55,9 +59,69 @@ for(let i = 0; i < seats.length; i++){
 }
  
         
+    const applyButton = document.getElementById('applyBtn');
+    applyButton.addEventListener("click", function(){
 
-   
+        const couponInput = document.getElementById('couponInput').value;
+        const inputValue = couponInput.split(" ").join("").toUpperCase();
+      
+      if(inputValue === "NEW15"){
+        const discountContainer = document.getElementById('discount-container');
+         const discountTotal = document.createElement('div');
+         discountTotal.classList.add('flex', 'justify-between', 'pb-3');
+        //  Title --------
+        const discountTitle = document.createElement('p');
+        discountTitle.innerText = "Total Discount";
+        discountTotal.appendChild(discountTitle);
+        // Amount -----
+        const discountAmount = document.createElement('p');
+        discountAmount.innerText = costTotal*0.15;
+        discountTotal.appendChild(discountAmount);
+
+        discountContainer.appendChild(discountTotal);
+
+        const grandTotal = costTotal - discountAmount.innerText;
+        console.log(grandTotal);
+        document.getElementById('grandTotal').innerText = grandTotal;
+
+        document.getElementById('apply-container').classList.add('hidden');
+       
+      }
+      else if(inputValue === "COUPLE20"){
+        const discountContainer = document.getElementById('discount-container');
+         const discountTotal = document.createElement('div');
+         discountTotal.classList.add('flex', 'justify-between', 'pb-3');
+        //  Title --------
+        const discountTitle = document.createElement('p');
+        discountTitle.innerText = "Total Discount";
+        discountTotal.appendChild(discountTitle);
+        // Amount -----
+        const discountAmount = document.createElement('p');
+        discountAmount.innerText = costTotal*0.20;
+        discountTotal.appendChild(discountAmount);
+
+        discountContainer.appendChild(discountTotal);
+
+        const grandTotal = costTotal - discountAmount.innerText;
+        console.log(grandTotal);
+        document.getElementById('grandTotal').innerText = grandTotal;
+
+        document.getElementById('apply-container').classList.add('hidden');
+      }
+    })
+  
     
-   
-//----------- Utility functions -------------
+  const nextButton = document.getElementById('nextBtn');
+
+  nextButton.addEventListener("click", function(){
+
+    const phoneNumber = parseInt(document.getElementById('phoneNumber').value);
+    
+    
+    if( typeof phoneNumber === "number" || totalSeat > 0){
+        console.log(' both condition is ok!')
+    }
+    
+  }) 
+
 
