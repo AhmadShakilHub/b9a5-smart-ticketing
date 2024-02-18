@@ -113,9 +113,8 @@ for(let i = 0; i < seats.length; i++){
   const nextButton = document.getElementById('nextBtn');
 
   nextButton.addEventListener("click", function(){
-    const phoneNumber = document.getElementById('phoneNumber').value;
     
-    if(typeof phoneNumber === "number" && totalSeat > 0){
+    if( totalSeat > 0){
         const getBanner = document.getElementById('banner');
         getBanner.classList.add('hidden');
 
